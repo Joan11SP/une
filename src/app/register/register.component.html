@@ -1,0 +1,282 @@
+<div class="container">
+    <div>
+      <h1>Formulario de registro</h1>
+      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+        <!-- DATOS PERSONALES -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Datos personales</div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col">
+                <div class="form-group">
+                  <label for="identification">Identificación</label>
+                  <input type="text" class="form-control" id="identification" required [(ngModel)]="model.person.identification" name="identification"
+                    #identification="ngModel">
+                  <div [hidden]="identification.valid || identification.pristine" class="alert alert-danger">
+                    Name is required
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="names">Nombres</label>
+                  <input type="text" class="form-control" id="names" required [(ngModel)]="model.person.names" name="names"
+                    #names="ngModel">
+                  <div [hidden]="names.valid || names.pristine" class="alert alert-danger">
+                    Name is required
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="fathersLastName">Apellido Paterno</label>
+                      <input type="text" class="form-control" id="name" required [(ngModel)]="model.person.fathersLastName" name="fathersLastName"
+                        #fathersLastName="ngModel">
+                      <div [hidden]="fathersLastName.valid || fathersLastName.pristine" class="alert alert-danger">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="mothersLastName">Apellido Materno</label>
+                      <input type="text" class="form-control" id="mothersLastName" required [(ngModel)]="model.person.mothersLastName" name="mothersLastName"
+                        #mothersLastName="ngModel">
+                      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="gender">Sexo</label>
+                      <select class="form-control" id="gender" required [(ngModel)]="model.person.gender" name="gender"
+                        #gender="ngModel">
+                        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                      </select>
+                      <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                        Power is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="email">Correo</label>
+                      <input type="text" class="form-control" id="email" [(ngModel)]="model.person.email"
+                        name="email">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="phone">Nro Celular</label>
+                      <input type="text" class="form-control" id="phone" required [(ngModel)]="model.person.phone" name="phone"
+                        #phone="ngModel">
+                      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="landlineTelephone">Teléfono fijo</label>
+                      <input type="text" class="form-control" id="landlineTelephone" required [(ngModel)]="model.person.landlineTelephone" name="landlineTelephone"
+                        #landlineTelephone="ngModel">
+                      <div [hidden]="landlineTelephone.valid || landlineTelephone.pristine" class="alert alert-danger">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="address">Dirección domicilio (Calles y Nº)</label>
+                  <input type="text" class="form-control" id="address" required [(ngModel)]="model.person.address" name="address"
+                    #address="ngModel">
+                  <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+                    Name is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="province">Provincia</label>
+                  <select class="form-control" id="province" required [(ngModel)]="model.person.province" name="province"
+                    #province="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="province.valid || province.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="canton">Cantón</label>
+                  <select class="form-control" id="canton" required [(ngModel)]="model.person.canton" name="canton"
+                    #canton="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="canton.valid || canton.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="parish">Parroquia</label>
+                  <select class="form-control" id="parish" required [(ngModel)]="model.person.parish" name="parish"
+                    #parish="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="parish.valid || parish.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTITUCION EN LA QUE LABORA -->
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header">
+            <div class="card-title">Institución donde labora</div>
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+
+              <div class="col">
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input type="text" class="form-control" id="name" required [(ngModel)]="model.workInstitution.name" name="name"
+                    #name="ngModel">
+                  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="wAddress">Dirección</label>
+                  <input type="text" class="form-control" id="wAddress" [(ngModel)]="model.workInstitution.address" name="wAddress">
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="wEmail">Correo institucional</label>
+                      <input type="text" class="form-control" id="wEmail" required [(ngModel)]="model.workInstitution.email" name="wEmail"
+                        #wEmail="ngModel">
+                      <div [hidden]="wEmail.valid || wEmail.pristine" class="alert alert-danger">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="wPhone">Teléfono</label>
+                      <input type="text" class="form-control" id="wPhone" required [(ngModel)]="model.workInstitution.phone" name="wPhone"
+                        #wPhone="ngModel">
+                      <div [hidden]="wPhone.valid || wPhone.pristine" class="alert alert-danger">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+
+                <div class="form-group">
+                  <label for="district">Distrito</label>
+                  <select class="form-control" id="district" required [(ngModel)]="model.workInstitution.district" name="district"
+                    #power="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="wProvince">Provincia</label>
+                  <select class="form-control" id="wProvince" required [(ngModel)]="model.workInstitution.province" name="wProvince"
+                    #wProvince="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="wProvince.valid || wProvince.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="wCanton">Cantón</label>
+                  <select class="form-control" id="wCanton" required [(ngModel)]="model.workInstitution.canton" name="wCanton"
+                    #wCanton="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="wCanton.valid || wCanton.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- DATOS DE LA CUENTA -->
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header">
+            <div class="card-title">Cuenta Bancaria</div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="form-group">
+                <label for="institution">Institución financiera</label>
+                <select class="form-control" id="institution" required [(ngModel)]="model.account.institution" name="institution"
+                  #institution="ngModel">
+                  <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                </select>
+                <div [hidden]="institution.valid || institution.pristine" class="alert alert-danger">
+                  Power is required
+                </div>                
+              </div>
+
+              <div class="row">
+                <div class="col">                  
+                  <div class="form-group">
+                    <label for="numAccount">Número de cuenta</label>
+                    <input type="text" class="form-control" id="numAccount" [(ngModel)]="model.account.numAccount" name="numAccount">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="type">Tipo</label>
+                    <select class="form-control" id="type" required [(ngModel)]="model.account.type" name="type"
+                      #type="ngModel">
+                      <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                    </select>
+                    <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+                      Power is required
+                    </div>                
+                  </div>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" style="margin-top: 15px; margin-bottom: 30px;" (click)="onSubmit()">Previsualizar</button>
+      </form>
+    </div>
+
+  </div>
